@@ -1,22 +1,22 @@
 {
   "name": "webdriver-repl",
   "version": "1.0.0",
-  "description": "",
+  "description": "CLI tool to debug webdriver commands using interactive REPL server",
   "main": "index.js",
   "scripts": {
-    "gradle": "node-java-maven",
-    "start": "tsc && node built/cli.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "scripts/postinstall.js"
   },
   "bin": {
     "wd-repl": "bin/wd-repl"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["selenium", "webdriver", "chromedriver","webdriverio", "automation", "cli", "repl", "chrome"],
+  "author": "Sudharsan Selvaraj <sudharsanselvaraj.c@gmail.com> (https://github.com/sudharsan-selvaraj/)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sudharsan-selvaraj/webdriver-repl.git"
+  },
   "license": "ISC",
   "dependencies": {
-    "@types/java": "^0.9.1",
-    "@types/yargs": "^17.0.0",
     "colors": "^1.4.0",
     "java": "^0.12.1",
     "node-java-maven": "^0.1.2",
@@ -32,6 +32,8 @@
     ]
   },
   "devDependencies": {
+    "@types/java": "^0.9.1",
+    "@types/yargs": "^17.0.0",
     "@types/node": "^15.12.2",
     "typescript": "^4.3.2"
   }
