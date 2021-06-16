@@ -1,0 +1,88 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'signing'
+}
+
+group 'io.github.sudharsan-selvaraj'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+signing {
+    sign publishing.publications
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = "io.github.sudharsan-selvaraj"
+            artifactId = "webdriver-repl-service"
+            version = "1.0.0"
+
+            from components.java
+            pom {
+                name = 'webdriver-repl-client'
+                description = 'Service consumed by webdriver repl node client'
+                url = 'https://github.com/sudharsan-selvaraj/webdriver-repl'
+
+                developers {
+                    developer {
+                        name = 'Sudharsan Selvaraj'
+                        email = 'sudharsanselvaraj.c@gmail.com'
+                        url = 'https://github.com/sudharsan-selvaraj'
+                        id = 'sudharsan-selvaraj'
+                    }
+                }
+                licenses {
+                    license {
+                        name = 'Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        distribution = 'repo'
+                    }
+                }
+                scm {
+                    url = 'https://github.com/sudharsan-selvaraj/webdriver-repl'
+                    connection = 'scm:git:ssh://git@github.com:sudharsan-selvaraj/webdriver-repl.git'
+                    developerConnection = 'scm:git:ssh://git@github.com:sudharsan-selvaraj/webdriver-repl.git'
+                    tag = 'HEAD'
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            credentials {
+                username project.findProperty("sonatypeUser")?.toString() ?: System.getenv("SONATYPE_USER")
+                password project.findProperty("sonatypePassword")?.toString() ?: System.getenv("SONATYPE_PASSWORD")
+            }
+            def releasesRepoUrl = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+            def snapshotsRepoUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+        }
+    }
+}
+
+dependencies {
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+    implementation group: 'io.github.sudharsan-selvaraj', name: 'spydriver', version: '1.1.1'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.8'
+    implementation "io.github.bonigarcia:webdrivermanager:4.4.3";
+    implementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.30'
+
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+    testCompileOnly 'org.projectlombok:lombok:1.18.20'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
+}
+
+test {
+    useTestNG()
+}

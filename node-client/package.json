@@ -1,0 +1,38 @@
+{
+  "name": "webdriver-repl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "gradle": "node-java-maven",
+    "start": "tsc && node built/cli.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "wd-repl": "bin/wd-repl"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/java": "^0.9.1",
+    "@types/yargs": "^17.0.0",
+    "colors": "^1.4.0",
+    "java": "^0.12.1",
+    "node-java-maven": "^0.1.2",
+    "yargs": "^17.0.1"
+  },
+  "java": {
+    "dependencies": [
+      {
+        "groupId": "io.github.sudharsan-selvaraj",
+        "artifactId": "webdriver-repl-service",
+        "version": "1.0.0"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^15.12.2",
+    "typescript": "^4.3.2"
+  }
+}
