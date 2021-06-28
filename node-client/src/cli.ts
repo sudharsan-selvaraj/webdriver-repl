@@ -31,6 +31,9 @@ yargs.check(function (arg: any) {
     return true;
 });
 
+yargs
+    .array("classpath")
+    .default("classpath", [])
 
 let argv: any = yargs.parse(process.argv.splice(2));
 

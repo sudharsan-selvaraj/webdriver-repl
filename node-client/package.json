@@ -4,7 +4,8 @@
   "description": "CLI tool to debug webdriver commands using interactive REPL server",
   "main": "index.js",
   "scripts": {
-    "postinstall": "node scripts/postinstall.js"
+    "postinstall": "node scripts/postinstall.js",
+    "publish": "tsc"
   },
   "bin": {
     "wd-repl": "bin/wd-repl"
