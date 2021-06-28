@@ -37,7 +37,7 @@ wd-repl --seleniumAddress http://localhost:4444/wd/hub
 type `wd-repl --help` to get the available CLI parameters
 
 <p align="center">
-    <img src="./docs/wd-repl-demo.gif">
+    <img src="./docs/help.png">
 </p>
 
 ## --browser
