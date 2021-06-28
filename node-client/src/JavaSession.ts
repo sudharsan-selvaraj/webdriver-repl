@@ -9,7 +9,7 @@ let EXCLUDED_JARS = [
 ];
 
 let isJarExcluded = function (jarPath: string) {
-    var jar = jarPath.split("/").pop();
+    var jar = path.basename(jarPath);
     return EXCLUDED_JARS.includes(jar);
 }
 

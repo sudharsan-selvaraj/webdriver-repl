@@ -4,12 +4,21 @@
   "description": "CLI tool to debug webdriver commands using interactive REPL server",
   "main": "index.js",
   "scripts": {
-    "postinstall": "scripts/postinstall.js"
+    "postinstall": "node scripts/postinstall.js"
   },
   "bin": {
     "wd-repl": "bin/wd-repl"
   },
-  "keywords": ["selenium", "webdriver", "chromedriver","webdriverio", "automation", "cli", "repl", "chrome"],
+  "keywords": [
+    "selenium",
+    "webdriver",
+    "chromedriver",
+    "webdriverio",
+    "automation",
+    "cli",
+    "repl",
+    "chrome"
+  ],
   "author": "Sudharsan Selvaraj <sudharsanselvaraj.c@gmail.com> (https://github.com/sudharsan-selvaraj/)",
   "repository": {
     "type": "git",
