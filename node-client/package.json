@@ -1,11 +1,12 @@
 {
   "name": "webdriver-repl",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "CLI tool to debug webdriver commands using interactive REPL server",
   "main": "index.js",
   "scripts": {
     "postinstall": "node scripts/postinstall.js",
-    "publish": "tsc"
+    "prepublish": "tsc && npm run copy-readme",
+    "copy-readme" : "copyfiles ../README.md node-client"
   },
   "bin": {
     "wd-repl": "bin/wd-repl"
@@ -43,8 +44,9 @@
   },
   "devDependencies": {
     "@types/java": "^0.9.1",
-    "@types/yargs": "^17.0.0",
     "@types/node": "^15.12.2",
+    "@types/yargs": "^17.0.0",
+    "copyfiles": "^2.4.1",
     "typescript": "^4.3.2"
   }
 }
